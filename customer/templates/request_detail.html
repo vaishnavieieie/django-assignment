@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Request Details</h2>
+    <p>Type: {{ service_request.request_type }}</p>
+    <p>Details: {{ service_request.request_details }}</p>
+    <p>Status: {{ service_request.request_status }}</p>
+    <p>Submitted At: {{ service_request.submitted_at }}</p>
+    {% if service_request.resolved_at %}
+        <p>Resolved At: {{ service_request.resolved_at }}</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Request Status</title>
+</head>
+<body>
+    <h1>Update Status for Request ID {{ customer_request.id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="request_status">Status:</label>
+        <select id="request_status" name="request_status">
+            {% for key, value in customer_request.status_options %}
+            <option value="{{ key }}" {% if customer_request.request_status == key %}selected{% endif %}>
+                {{ value }}
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'support_request_list' %}">Back to Request List</a>
+</body>
+</html>

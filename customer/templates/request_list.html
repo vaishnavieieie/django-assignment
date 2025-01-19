@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>My Service Requests</h2>
+    <ul>
+        {% for request in requests %}
+            <li>
+                <a href="{% url 'request_detail' request.id %}">{{ request.request_type }}</a>
+                - {{ request.request_status }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
